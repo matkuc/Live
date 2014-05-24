@@ -1,0 +1,17 @@
+@(d1: Long, d2: Long)
+
+@main {
+
+<h1>Mecz na szczycie! Lotnik Twardogóra : Polonia Grabowno</h1>
+
+
+<div class="actions">
+    <h2>@d1 : @d2</h2>
+
+</div>
+
+<a class="btn info" id="gola" href="@routes.Match1.ScoreA(d1:Long, d2:Long)">Gol A</a>
+<a class="btn danger" id="golb" href="@routes.Match1.ScoreB(d1:Long, d2:Long)">Gol B</a>
+
+
+}

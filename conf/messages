@@ -1,0 +1,8 @@
+# Messages
+
+computers.list.title={0,choice,0#No computers|1#One computer|1<{0,number,integer} computers} found
+players.list.title=Znaleziono {0,choice,0#0 piłkarzy|1#1 piłkarza|1<{0,number,integer} piłkarzy}
+referees.list.title=Znaleziono {0,choice,0#0 sędziów|1#1 sędziego|1<{0,number,integer} sędziów}
+teams.list.title=Znaleziono {0,choice,0#0 zespołów|1#1 zespół|1<{0,number,integer} zespołów}
+
+

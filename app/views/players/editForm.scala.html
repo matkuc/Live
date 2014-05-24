@@ -1,0 +1,45 @@
+@(id: Long, playerForm: Form[Player])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+@main {
+
+<h1>Edytuj piłkarza</h1>
+
+@form(routes.Players.update(id)) {
+
+<fieldset>
+
+    @inputText(playerForm("firstname"), '_label -> "Imię")
+    @inputText(playerForm("lastname"), '_label -> "Nazwisko")
+
+    @select(
+    playerForm("team.id"),
+    options(Team.options),
+    '_label -> "Zespół", '_default -> "-- Wybierz zespół --",
+    '_showConstraints -> false
+    )
+
+    @inputText(playerForm("date_birth"), '_label -> "Data urodzin")
+    @inputText(playerForm("photo"), '_label -> "Zdjęcie")
+    @inputText(playerForm("height"), '_label -> "Wzrost")
+    @inputText(playerForm("weight"), '_label -> "Waga")
+    @inputText(playerForm("position"), '_label -> "Pozycja")
+    @inputText(playerForm("number"), '_label -> "Numer")
+
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Edytuj piłkarza" class="btn primary"> or
+    <a href="@routes.Players.list()" class="btn">Anuluj</a>
+</div>
+
+}
+
+@form(routes.Players.delete(id), 'class -> "topRight") {
+<input type="submit" value="Usuń piłkarza" class="btn danger">
+}
+
+}

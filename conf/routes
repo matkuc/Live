@@ -1,0 +1,56 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the computer list
+GET     /                           controllers.Teams.index()
+GET     /referees/index             controllers.Referees.index()
+GET     /players/index              controllers.Players.index()
+
+
+# Computers list (look at the default values for pagination parameters)
+GET     /computers                  controllers.Application.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+GET     /teams                      controllers.Teams.list(p:Int ?= 0, s ?= "nazwa", o ?= "asc", f ?= "")
+GET     /referees                   controllers.Referees.list(p:Int ?= 0, s ?= "lastname", o ?= "asc", f ?= "")
+GET     /players                    controllers.Players.list(p:Int ?= 0, s ?= "lastname", o ?= "asc", f ?= "")
+
+# Add computer
+GET     /computers/new              controllers.Application.create()
+POST    /computers                  controllers.Application.save()
+
+GET     /teams/new                  controllers.Teams.create()
+POST    /teams                      controllers.Teams.save()
+
+GET     /referees/new               controllers.Referees.create()
+POST    /referees                   controllers.Referees.save()
+
+GET     /players/new               controllers.Players.create()
+POST    /players                   controllers.Players.save()
+
+GET     /match/wyrzuc              controllers.Match1.r1()
+
+GET   /match/gol              controllers.Match1.ScoreA(d1:Long, d2:Long)
+GET   /match/gol1             controllers.Match1.ScoreB(d1:Long, d2:Long)
+
+# Edit existing computer
+GET     /computers/:id              controllers.Application.edit(id:Long)
+POST    /computers/:id              controllers.Application.update(id:Long)
+
+GET     /teams/:id              controllers.Teams.edit(id:Long)
+POST    /teams/:id              controllers.Teams.update(id:Long)
+
+GET     /referees/:id              controllers.Referees.edit(id:Long)
+POST    /referees/:id              controllers.Referees.update(id:Long)
+
+GET     /players/:id              controllers.Players.edit(id:Long)
+POST    /players/:id              controllers.Players.update(id:Long)
+
+# Delete a computer
+POST    /computers/:id/delete       controllers.Application.delete(id:Long)
+POST    /teams/:id/usun           controllers.Teams.delete(id:Long)
+POST    /referees/:id/delete       controllers.Referees.delete(id:Long)
+POST    /players/:id/delete       controllers.Players.delete(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+

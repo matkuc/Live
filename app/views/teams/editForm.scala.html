@@ -1,0 +1,31 @@
+@(id: Long, zespolForm: Form[Team])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+@main {
+
+<h1>Edytuj Zespół</h1>
+
+@form(routes.Teams.update(id)) {
+
+<fieldset>
+
+    @inputText(zespolForm("name"), '_label -> "Nazwa zespołu")
+    @inputText(zespolForm("crest"), '_label -> "Nazwa obrazka z herbem")
+
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Edytuj zespół" class="btn primary"> or
+    <a href="@routes.Teams.list()" class="btn">Anuluj</a>
+</div>
+
+}
+
+@form(routes.Teams.delete(id), 'class -> "topRight") {
+<input type="submit" value="Usuń ten zespół" class="btn danger">
+}
+
+}
